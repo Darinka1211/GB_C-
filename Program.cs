@@ -29,25 +29,40 @@
 // 2, 3, 7 -> 7
 // 44 5 78 -> 78
 // 22 3 9 -> 22
-Console.Write("Введите первое число:");
-int numberOne = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите второе число:");
-int numberTwo = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите третье число:");
-int numberThree = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите первое число:");
+// int numberOne = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите второе число:");
+// int numberTwo = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите третье число:");
+// int numberThree = Convert.ToInt32(Console.ReadLine());
 
-if (numberOne > numberTwo && numberOne > numberThree)
-{
-    Console.Write("Максимальное число:");
-    Console.WriteLine(numberOne);
-}
-if (numberTwo > numberOne && numberTwo > numberThree)
-{
-    Console.Write("Максимальное число:");
-    Console.WriteLine(numberTwo);
-}
-if (numberThree > numberTwo && numberThree > numberOne)
-{
-    Console.Write("Максимальное число:");
-    Console.WriteLine(numberThree);
-}
+// if (numberOne > numberTwo && numberOne > numberThree)
+// {
+//     Console.Write("Максимальное число:");
+//     Console.WriteLine(numberOne);
+// }
+// if (numberTwo > numberOne && numberTwo > numberThree)
+// {
+//     Console.Write("Максимальное число:");
+//     Console.WriteLine(numberTwo);
+// }
+// if (numberThree > numberTwo && numberThree > numberOne)
+// {
+//     Console.Write("Максимальное число:");
+//     Console.WriteLine(numberThree);
+// }
+// --------------------------------------
+// Задача 6: Напишите программу, которая на вход принимает число и выдаёт,
+// является ли число чётным (делится ли оно на два без остатка).
+// 4 -> да
+// -3 -> нет
+// 7 -> нет
+Console.Write("Введите число:");
+ int number = Convert.ToInt32(Console.ReadLine());
+
+ if ( number%2==0){
+    Console.Write("Число является четным!");
+ }
+ else {
+    Console.Write("Число НЕ является четным!");
+ }
