@@ -1,80 +1,137 @@
-﻿//Задача 1
-// Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
-// a = 5; b = 7 -> max = 7
-// a = 2 b = 10 -> max = 10
-// a = -9 b = -3 -> max = -3
+﻿// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Hello, World!");
 
-// Console.Write("Введите первое число:");
-// int numberOne = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Введите второе число:");
-// int numberTwo = Convert.ToInt32(Console.ReadLine());
+// Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+// 3, 5 -> 243 (3⁵)
+// 2, 4 -> 16
+int NumberEx(int numberA, int numberB)
+{
+    int result = 1;
+    for (int i = 1; i <= numberB; i++)
+    {
+        result = result * numberA;
+    }
 
-// if (numberOne>numberTwo)
-// {
-// Console.Write("Максимальное число:");
-// Console.WriteLine(numberOne);
-// Console.Write("Минимальное число:");
-// Console.WriteLine(numberTwo);
-// }
-// else
-// {
-// Console.Write("Максимальное число:");
-// Console.WriteLine(numberTwo);
-// Console.Write("Минимальное число:");
-// Console.WriteLine(numberOne);
-// }
-//-------------------------------------------
-//Задача 2
-// Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
-// 2, 3, 7 -> 7
-// 44 5 78 -> 78
-// 22 3 9 -> 22
-// Console.Write("Введите первое число:");
-// int numberOne = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Введите второе число:");
-// int numberTwo = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Введите третье число:");
-// int numberThree = Convert.ToInt32(Console.ReadLine());
+    return result;
+}
 
-// if (numberOne > numberTwo && numberOne > numberThree)
-// {
-//     Console.Write("Максимальное число:");
-//     Console.WriteLine(numberOne);
-// }
-// if (numberTwo > numberOne && numberTwo > numberThree)
-// {
-//     Console.Write("Максимальное число:");
-//     Console.WriteLine(numberTwo);
-// }
-// if (numberThree > numberTwo && numberThree > numberOne)
-// {
-//     Console.Write("Максимальное число:");
-//     Console.WriteLine(numberThree);
-// }
-// // --------------------------------------
-// Задача 3:
-//  Напишите программу, которая на вход принимает число и выдаёт,
-// является ли число чётным (делится ли оно на два без остатка).
-// 4 -> да
-// -3 -> нет
-// 7 -> нет
-// Console.Write("Введите число:");
-//  int number = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите число A: ");
+int numberA = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите число B: ");
+int numberB = Convert.ToInt32(Console.ReadLine());
 
-//  if ( number%2==0){
-//     Console.Write("Число является четным!");
-//  }
-//  else {
-//     Console.Write("Число НЕ является четным!");
-//  }
-// Задача 4:
-//  Напишите программу, которая на вход принимает число (N),
-// а на выходе показывает все чётные числа от 1 до N.
-// 5 -> 2, 4
-// 8 -> 2, 4, 6, 8
+int exponentiation = NumberEx(numberA, numberB);
+Console.WriteLine("Ответ: " + exponentiation);
 
-Console.Write("Введите число N:");
-int N= Convert.ToInt32(Console.ReadLine());
-for (int x = 2; x < N; x++)       
-if (x%2==0)            
-Console.WriteLine(x);
+//   Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+// 452 -> 11
+// 82 -> 10
+// 9012 -> 12
+
+Console.Write("Введите число N: ");
+int numberN = Convert.ToInt32(Console.ReadLine());
+
+int SumNumber(int numberN)
+{
+    int counter = Convert.ToString(numberN).Length;
+    int advance = 0;
+    int result = 0;
+
+    for (int i = 0; i < counter; i++)
+    {
+        advance = numberN - numberN % 10;
+        result = result + (numberN - advance);
+        numberN = numberN / 10;
+    }
+    return result;
+}
+
+int sumNumber = SumNumber(numberN);
+Console.WriteLine("Сумма цифр в числе: " + sumNumber);
+
+// Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+// 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+// 6, 1, 33 -> [6, 1, 33]
+Console.Write("Введите ряд чисел, разделенных запятой : ");
+string? NumberOut = Console.ReadLine();
+
+NumberOut = NumberOut + ",";
+string RemovingSpaces(string series)
+{
+    string newString = "";
+    for (int i = 0; i < series.Length; i++)
+    {
+        if (series[i] != ' ')
+        {
+            newString += series[i];
+        }
+    }
+    return newString;
+}
+void СheckNumber2(int series)
+{
+    if (
+        series == '0'
+        || series == '1'
+        || series == '2'
+        || series == '3'
+        || series == '4'
+        || series == '5'
+        || series == '6'
+        || series == '7'
+        || series == '8'
+        || series == '9'
+        || series == ','
+        || series == '-'
+    ) { }
+    else
+    {
+        Console.WriteLine($"Ошибка ввода  символа. Вводи цифры.");
+    }
+}
+
+int[] ArrayOfNumbers(string newString)
+{
+    int[] arrOfNumbers = new int[1];
+    int j = 0;
+    for (int i = 0; i < newString.Length; i++)
+    {
+        string newString1 = "";
+
+        while (newString[i] != ',' && i < newString.Length)
+        {
+            newString1 += newString[i];
+            СheckNumber2(newString[i]);
+            i++;
+        }
+        arrOfNumbers[j] = Convert.ToInt32(newString1);
+        if (i < newString.Length - 1)
+        {
+            arrOfNumbers = arrOfNumbers.Concat(new int[] { 0 }).ToArray(); 
+        }
+        j++;
+    }
+    return arrOfNumbers;
+}
+void PrintArry(int[] coll)
+{
+    int count = coll.Length;
+    int index = 0;
+    Console.Write("[");
+    while (index < count)
+    {
+        Console.Write(coll[index]);
+        index++;
+        if (index < count)
+        {
+            Console.Write(", ");
+        }
+    }
+    Console.Write("]");
+}
+
+string newString = RemovingSpaces(NumberOut);
+
+int[] arrOfNumbers = ArrayOfNumbers(newString);
+
+PrintArry(arrOfNumbers);
